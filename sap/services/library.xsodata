@@ -1,0 +1,6 @@
+service namespace "everis.sap.services" {
+	"everis.sap.data::mydata.Book" as "library" navigates ("library_region" as "booksreg");
+	"everis.sap.data::mydata.Region" as "region" ;
+    association "library_region" with referential constraint principal "region"("ID")
+    multiplicity "1" dependent "library"("RegionPk.ID") multiplicity "*"; 
+} 
